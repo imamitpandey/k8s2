@@ -1,8 +1,8 @@
 apiversion: v1
 kind: pod
 metadata:
- Name: Webserver
+ Name: webserver
 Spec:
  Containers:
    -name: web
-   image: nginx:alpine
+   image: nginx
