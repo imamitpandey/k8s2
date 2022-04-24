@@ -1,0 +1,10 @@
+apiversion:v1
+kind:pod
+metadata:
+ Name :browser
+Spec:
+ Containers:
+  -name:curl
+  image:ngnex:alpine
+  imagepullpolicy:ifNotPresent
+  command:{sh,'-c','echopodrunning';sleep7200]
