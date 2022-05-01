@@ -1,10 +1,10 @@
-apiversion:v1
-kind:pod
+apiversion: v1
+kind: pod
 metadata:
- Name :browser
+ Name : browser
 Spec:
  Containers:
-  -name:curl
-  image:ngnex:alpine
-  imagepullpolicy:ifNotPresent
-  command:{sh,'-c','echopodrunning';sleep7200]
+  - name: curl
+    image: ngnex:alpine
+    imagepullpolicy: ifNotPresent
+    command: [sh,'-c','echopodrunning';sleep7200]
