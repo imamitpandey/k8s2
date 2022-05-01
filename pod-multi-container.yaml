@@ -11,5 +11,5 @@ spec:
     - name: web
       image: nginx:1.16-alpine
 	- name: curl
-	  image: jenkins
+	  image: curl
 	  command: ["/bin/sh" , "-c" , "while : ;do curl http://localhost:80; sleep 15; done"]
