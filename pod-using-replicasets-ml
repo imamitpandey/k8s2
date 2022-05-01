@@ -1,0 +1,22 @@
+apiVersion: app/v1
+kind: ReplicaSet
+metadata:
+  name: webserver-rs
+  label:
+  app: nginxweb
+  type: production
+  ver: v1
+spec:
+  replica: 3
+  selector:
+   matchLable:
+    app: nginxweb
+  template:
+   metadata:
+    lable:
+	 app: nginxweb
+	 env: development
+	spec:
+	 containers:
+	  - name: web
+	    image: nginx 1.16-alpine
