@@ -1,13 +1,13 @@
-apiversion:v1
-kind:pod
+apiversion: v1
+kind: pod
 metadata:
- Name :webserver
+ Name : webserver
  label:
-  app:nginxweb
+  app: nginxweb
 Spec:
  Containers:
-  -name:web
-  image:ngnex:a1.16-alpine
-  ports:
-  containerport:80
+  - name: web
+    image: ngnex:a1.16-alpine
+    ports:
+    containerport: 80
   
