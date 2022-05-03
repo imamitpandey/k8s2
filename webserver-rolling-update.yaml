@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+spec:
+  minreadyseconds: 10
+  progressdeadlineseconds: 300
+  revisionhistorylimit: 3
+  replicas:3
+  selector:
+	matchlabels:
+	 app: nginxweb
+strategy:
+    rollingupdate:
+	 maxsurge: 1
+	 maxunavailable: 1
+	type: rollingupdate
+template:
+	 metadata:
+	  labels:
+	   app: nginxweb
+	   type: production
+	   ver: v1
+spec:
+ containers:
+    - image: nginx:1.16-alpine:v1
+	  name: web
+	  ports:
+	  - containerport: 80
+	    protocol: TCP
+		redinessprobe:
+		 httpget:
+		  path: /
+		  port: 80
+		initialdelayseconds: 30
+		timeoutseconds: 10
+		periodseconds: 5
+		successthreshold: 1
+		failurethreshold: 2
+		restartpolicy: Always
